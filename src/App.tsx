@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HoldingsPage from "./pages/HoldingsPage";
+import Header from "./components/header/Header";
 function Home() {
   return <h1>Home Page</h1>;
 }
@@ -14,12 +15,15 @@ function Contact() {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/portfolio" element={<HoldingsPage />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/portfolio" element={<HoldingsPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
   );
 }
 
