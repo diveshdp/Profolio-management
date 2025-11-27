@@ -44,3 +44,19 @@ enrichedData.forEach(item => {
   sectorData[item.sector] += item.totalValue;
 });
 
+// monthly portfolio value data 
+export const monthlyData = [
+  { month: 'Jun', value: 82000 },
+  { month: 'Jul', value: 85000 },
+  { month: 'Aug', value: 88000 },
+  { month: 'Sep', value: 91000 },
+  { month: 'Oct', value: 95000 },
+  { month: 'Nov', value: totalValue },
+];
+
+// sector colors
+export const sectorColors: Record<string, string> = {
+  Technology: '#0d6efd',
+  Financial: '#198754',
+  Healthcare: '#6f42c1',
+};

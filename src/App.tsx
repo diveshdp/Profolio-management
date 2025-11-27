@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import HoldingsPage from "./pages/HoldingsPage";
+import PerformanceAnalyticsPage from "./pages/PerformanceAnalyticsPage";
 import Header from "./components/header/Header";
 function Home() {
   return <h1>Home Page</h1>;
@@ -18,8 +18,8 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/holdings" element={<HoldingsPage />} />
-        <Route path="/portfolio" element={<HoldingsPage />} />
+        <Route path="/performance" element={<PerformanceAnalyticsPage />} />
+        {/* <Route path="/portfolio" element={<HoldingsPage />} /> */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
