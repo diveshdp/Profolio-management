@@ -1,0 +1,14 @@
+.ag-theme-quartz {
+  --ag-border-color: #e9ecef;
+  --ag-header-background-color: #f8f9fa;
+  --ag-header-height: 48px;
+  --ag-row-height: 56px;
+
+  --ag-font-size: 15px;
+  --ag-font-family: "Inter", sans-serif;
+}
+
+.ag-theme-quartz .ag-cell {
+  padding-left: 12px;
+  padding-right: 12px;
+}
