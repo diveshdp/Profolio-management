@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   activeTab?: string;
@@ -6,6 +7,13 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
+  const navigate = useNavigate();
+  
+  const handleNavigation = (path: string, tab: string) => {
+    navigate(path);
+    setActiveTab?.(tab);
+  };
+
   return (
     <nav
       className="bg-white border-bottom"
@@ -22,22 +30,22 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
           <div>
             <button
-              className={activeTab === "home" ? "nav-btn active" : "nav-btn"}
-              onClick={() => setActiveTab("home")}
+              className={activeTab === "dashboard" ? "nav-btn active" : "nav-btn"}
+              onClick={() => handleNavigation("/portfolio", "dashboard")}
             >
               Dashboard
             </button>
 
             <button
-              className={activeTab === "portfolio" ? "nav-btn active" : "nav-btn"}
-              onClick={() => setActiveTab("portfolio")}
+              className={activeTab === "holdings" ? "nav-btn active" : "nav-btn"}
+              onClick={() => handleNavigation("/holdings", "holdings")}
             >
               Holdings
             </button>
 
             <button
               className={activeTab === "analytics" ? "nav-btn active" : "nav-btn"}
-              onClick={() => setActiveTab("analytics")}
+              onClick={() => handleNavigation("/performance", "analytics")}
             >
               Analytics
             </button>

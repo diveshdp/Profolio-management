@@ -27,7 +27,7 @@ function App() {
         <Route path="/performance" element={<PerformanceAnalyticsPage />} />
         <Route path="/portfolio" element={<PortfolioDashboardPage />} />
         <Route path="/holdings" element={<HoldingsPage />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<PortfolioDashboardPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
