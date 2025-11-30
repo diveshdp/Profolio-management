@@ -73,9 +73,9 @@ const PortfolioDashboardPage: React.FC<PortfolioDashboardProps> = ({
   </div>
 </div>
 
-
+<div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
       {/* Charts */}
-<div className="card shadow-sm p-4 mb-4 rounded">
+<div className="card shadow-sm p-4 mb-4 rounded" style={{ flex: 1, minWidth: "300px", maxWidth: "1000px" }}>
   <h5 className="fw-bold mb-4">Portfolio Growth (6 Months)</h5>
   <div className="d-flex align-items-end gap-2" style={{ height: 200 }}>
     {monthlyData.map(item => {
@@ -103,7 +103,7 @@ const PortfolioDashboardPage: React.FC<PortfolioDashboardProps> = ({
   </div>
 </div>
 
-<div className="card shadow-sm p-4 mb-4 rounded">
+<div className="card shadow-sm p-4 mb-4 rounded" style={{ flex: 1, minWidth: "300px", maxWidth: "600px" }}>
   <h5 className="fw-bold mb-4">Sector Distribution</h5>
   {Object.entries(sectorData).map(([sector, value]) => {
     const pct = ((value ?? 0) / (totalValue ?? 1) * 100).toFixed(1);
@@ -126,7 +126,7 @@ const PortfolioDashboardPage: React.FC<PortfolioDashboardProps> = ({
   })}
 </div>
 
-
+</div>
       {/* Top Holdings Table */}
      <div className="card shadow-sm p-4 rounded">
   <h5 className="fw-bold mb-4">Top Holdings</h5>

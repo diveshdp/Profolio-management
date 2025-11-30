@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   activeTab?: string;
@@ -8,11 +8,14 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   
   const handleNavigation = (path: string, tab: string) => {
     navigate(path);
     setActiveTab?.(tab);
   };
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav
@@ -28,24 +31,51 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             💼 Wealth Management Pro
           </h1>
 
-          <div>
+          <div style={{ display: "flex", gap: "12px" }}>
             <button
-              className={activeTab === "dashboard" ? "nav-btn active" : "nav-btn"}
               onClick={() => handleNavigation("/portfolio", "dashboard")}
+              style={{
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "1px solid #ddd",
+                backgroundColor: isActive("/portfolio") ? "#0d6efd" : "#fff",
+                color: isActive("/portfolio") ? "#fff" : "#212529",
+                cursor: "pointer",
+                fontWeight: "500",
+                transition: "all 0.3s ease"
+              }}
             >
               Dashboard
             </button>
 
             <button
-              className={activeTab === "holdings" ? "nav-btn active" : "nav-btn"}
               onClick={() => handleNavigation("/holdings", "holdings")}
+              style={{
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "1px solid #ddd",
+                backgroundColor: isActive("/holdings") ? "#0d6efd" : "#fff",
+                color: isActive("/holdings") ? "#fff" : "#212529",
+                cursor: "pointer",
+                fontWeight: "500",
+                transition: "all 0.3s ease"
+              }}
             >
               Holdings
             </button>
 
             <button
-              className={activeTab === "analytics" ? "nav-btn active" : "nav-btn"}
               onClick={() => handleNavigation("/performance", "analytics")}
+              style={{
+                padding: "8px 16px",
+                borderRadius: "6px",
+                border: "1px solid #ddd",
+                backgroundColor: isActive("/performance") ? "#0d6efd" : "#fff",
+                color: isActive("/performance") ? "#fff" : "#212529",
+                cursor: "pointer",
+                fontWeight: "500",
+                transition: "all 0.3s ease"
+              }}
             >
               Analytics
             </button>
