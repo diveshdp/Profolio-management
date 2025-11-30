@@ -6,7 +6,7 @@ body { background-color: #f8f9fa; margin: 0; }
   color: #495057;
   padding: 10px 24px;
   margin: 0 6px;
-  border-radius: 8px;
+  border-radius: 12px;  
   font-weight: 600;
   transition: all 0.3s;
 }
@@ -20,5 +20,6 @@ body { background-color: #f8f9fa; margin: 0; }
 .nav-btn.active {
   background: #0d6efd;
   color: white;
-  border-color: #0d6efd;
+  border-color: #0a58ca;   /* 🔥 Slightly darker border for a solid look */
+  box-shadow: 0 0 6px rgba(13, 110, 253, 0.45);  /* 🔥 Add glow like screenshot */
 }
