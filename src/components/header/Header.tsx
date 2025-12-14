@@ -16,6 +16,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   };
 
   const isActive = (path: string) => location.pathname === path;
+  
+  const isDashboardActive = () => location.pathname === "/" || location.pathname === "/portfolio";
 
   return (
     <nav
@@ -38,8 +40,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 padding: "8px 16px",
                 borderRadius: "6px",
                 border: "1px solid #ddd",
-                backgroundColor: isActive("/portfolio") ? "#0d6efd" : "#fff",
-                color: isActive("/portfolio") ? "#fff" : "#212529",
+                backgroundColor: isDashboardActive() ? "#0d6efd" : "#fff",
+                color: isDashboardActive() ? "#fff" : "#212529",
                 cursor: "pointer",
                 fontWeight: "500",
                 transition: "all 0.3s ease"
