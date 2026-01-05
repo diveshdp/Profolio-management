@@ -31,7 +31,7 @@ export const totalCost = enrichedData.reduce((sum, item) => sum + item.totalCost
 
 export const totalGainLoss = totalValue - totalCost;
 
-export const totalReturn = ((totalGainLoss / totalCost) * 100).toFixed(2);
+export const totalReturn = parseFloat(((totalGainLoss / totalCost) * 100).toFixed(2));
 
 
 // sector-wise distribution

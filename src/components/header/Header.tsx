@@ -2,18 +2,12 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../../styles/header.css";
 
-interface HeaderProps {
-  activeTab?: string;
-  setActiveTab?: (tab: string) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
+const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  const handleNavigation = (path: string, tab: string) => {
+  const handleNavigation = (path: string) => {
     navigate(path);
-    setActiveTab?.(tab);
   };
 
   const isActive = (path: string) => location.pathname === path;
@@ -31,21 +25,21 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           <div className="header-buttons">
             <button
               className={`nav-button ${isDashboardActive() ? "active" : ""}`}
-              onClick={() => handleNavigation("/portfolio", "dashboard")}
+              onClick={() => handleNavigation("/portfolio")}
             >
               Dashboard
             </button>
 
             <button
               className={`nav-button ${isActive("/holdings") ? "active" : ""}`}
-              onClick={() => handleNavigation("/holdings", "holdings")}
+              onClick={() => handleNavigation("/holdings")}
             >
               Holdings
             </button>
 
             <button
               className={`nav-button ${isActive("/performance") ? "active" : ""}`}
-              onClick={() => handleNavigation("/performance", "analytics")}
+              onClick={() => handleNavigation("/performance")}
             >
               Analytics
             </button>

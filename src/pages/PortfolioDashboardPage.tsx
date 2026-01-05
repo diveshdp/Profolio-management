@@ -1,4 +1,4 @@
-import {monthlyData, sectorColors, sectorData, totalCost, totalGainLoss, totalReturn, totalValue, enrichedData} from "../constants/portfolio.constants";
+import {monthlyData, sectorColors, sectorData, enrichedData} from "../constants/portfolio.constants";
 
 interface PortfolioDashboardProps {
   totalValue: number;
@@ -45,21 +45,21 @@ const PortfolioDashboardPage: React.FC<PortfolioDashboardProps> = ({
 
   {/* Gain/Loss */}
   <div className="col-lg-3 col-md-6">
-    <div className="stat-card shadow-sm p-3 rounded" style={{ borderLeft: `5px solid ${totalGainLoss >= 0 ? "#198754" : "#dc3545"}` }}>
+    <div className="stat-card shadow-sm p-3 rounded" style={{ borderLeft: `5px solid ${(totalGainLoss ?? 0) >= 0 ? "#198754" : "#dc3545"}` }}>
       <div className="text-uppercase text-muted small mb-1">Gain/Loss</div>
-      <div className={`fw-bold h3 text-${totalGainLoss >= 0 ? "success" : "danger"}`}>
-        {totalGainLoss >= 0 ? "+" : ""}${((Math.abs(totalGainLoss ?? 0))/1000).toFixed(1)}K
+      <div className={`fw-bold h3 text-${(totalGainLoss ?? 0) >= 0 ? 'success' : 'danger'}`}>
+        {(totalGainLoss ?? 0) >= 0 ? "+" : ""}${((Math.abs(totalGainLoss ?? 0))/1000).toFixed(1)}K
       </div>
-      <div className="text-muted small">{totalGainLoss >= 0 ? "+" : ""}${(totalGainLoss ?? 0).toLocaleString("en-US", {minimumFractionDigits: 2})}</div>
+      <div className="text-muted small">{(totalGainLoss ?? 0) >= 0 ? "+" : ""}${((totalGainLoss ?? 0)).toLocaleString("en-US", {minimumFractionDigits: 2})}</div>
     </div>
   </div>
 
   {/* Total Return */}
   <div className="col-lg-3 col-md-6">
-    <div className="stat-card shadow-sm p-3 rounded" style={{ borderLeft: `5px solid ${totalReturn >= 0 ? "#198754" : "#dc3545"}` }}>
+    <div className="stat-card shadow-sm p-3 rounded" style={{ borderLeft: `5px solid ${(totalReturn ?? 0) >= 0 ? "#198754" : "#dc3545"}` }}>
       <div className="text-uppercase text-muted small mb-1">Total Return</div>
-      <div className={`fw-bold h3 text-${totalReturn >= 0 ? "success" : "danger"}`}>
-        {totalReturn >= 0 ? "+" : ""}{(totalReturn ?? 0).toFixed(2)}%
+      <div className={`fw-bold h3 text-${(totalReturn ?? 0) >= 0 ? 'success' : 'danger'}`}>
+        {(totalReturn ?? 0) >= 0 ? "+" : ""}{((totalReturn ?? 0)).toFixed(2)}%
       </div>
       <div className="text-muted small">Since inception</div>
     </div>
@@ -141,8 +141,8 @@ const PortfolioDashboardPage: React.FC<PortfolioDashboardProps> = ({
           <td>{item.name}</td>
           <td className="text-end">${(item.totalValue ?? 0).toLocaleString()}</td>
           <td className="text-end">
-            <span className={`badge rounded-pill px-3 ${item.gainLossPercent >= 0 ? "bg-success" : "bg-danger"}`}>
-              {item.gainLossPercent >= 0 ? "+" : ""}{item.gainLossPercent}%
+            <span className={`badge rounded-pill px-3 ${parseFloat(item.gainLossPercent) >= 0 ? "bg-success" : "bg-danger"}`}>
+              {parseFloat(item.gainLossPercent) >= 0 ? "+" : ""}{item.gainLossPercent}%
             </span>
           </td>
         </tr>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { portfolioData, enrichedData } from '../constants/portfolio.constants';
+import { enrichedData } from '../constants/portfolio.constants';
 
-export default function PerformanceAnalyticsPage(): JSX.Element {
+export default function PerformanceAnalyticsPage(): React.ReactElement {
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function PerformanceAnalyticsPage(): JSX.Element {
                     <div className="d-flex justify-content-between mb-2">
                       <span className="fw-bold">{item.symbol} - {item.name}</span>
                       <span className="fw-bold" style={{ color: item.gainLoss >= 0 ? '#198754' : '#dc3545' }}>
-                        {item.gainLossPercent >= 0 ? '+' : ''}{item.gainLossPercent}%
+                        {parseFloat(item.gainLossPercent) >= 0 ? '+' : ''}{item.gainLossPercent}%
                       </span>
                     </div>
                     <div className="progress" style={{ height: '32px', borderRadius: '8px' }}>
