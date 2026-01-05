@@ -1,12 +1,5 @@
 import {monthlyData, sectorColors, sectorData, totalCost, totalGainLoss, totalReturn, totalValue, enrichedData} from "../constants/portfolio.constants";
 
-interface HoldingData {
-  symbol: string;
-  name: string;
-  totalValue: number;
-  gainLossPercent: number;
-}
-
 interface PortfolioDashboardProps {
   totalValue: number;
   totalCost: number;
