@@ -16,8 +16,9 @@ const HoldingsPage = () => {
       <div className="card-white p-4" style={{ height: "600px" }}>
         <div className="ag-theme-quartz" style={{ height: "100%", width: "100%" }}>
           <AgGridReact
+            theme="quartz"
             rowData={enrichedData}
-            columnDefs={holdingsColumnDefs as any}
+            columnDefs={holdingsColumnDefs}
             enableCellTextSelection={true}
             suppressMovableColumns={true}
             animateRows={true}
